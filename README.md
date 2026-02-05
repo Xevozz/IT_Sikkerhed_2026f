@@ -55,7 +55,7 @@ List, indhenter alt information, efterspurgt
 # -- Cycle Process test -- #
 I dette projekt andvendes cycle process testen på en bruger.
 følgende gentagne trin:
-1. oprettelse af bruger (Create)
+1. Oprettelse af bruger (Create)
 2. Læsning af brugerdata (Read)
 3. Opdatering af bruger password (Update)
 4. Authentification af brugeren (korrekt data om bruger)
@@ -71,7 +71,7 @@ er den tilgang jeg har valgt, da fokus primært er Unit-tests. Her er punkter so
 
 Så vi kan bruge Unit-tests til at validere:
 - CRUD-funktioner
-- Password-validering
+- password-validering
 igennem fx. Create_user, Update_user, Delete_user. funktionerne.
 Hvilket skaber et godt miljø, hvor fejl opdages tidligt for de primære funktioner.
 
@@ -83,8 +83,8 @@ Fordele:
 - Validere systemets samlede funktionalitet.
 
 Ulemper:
-- Test er betydeligt langsomere
-- Fejl kan være sværere at lokalisere
+- test er betydeligt langsomere
+- fejl kan være sværere at lokalisere
 - risici for at data-inputtet bliver for "overvældende"
 
 ## Test Pyramiden, Konsolidering med tooling ##
@@ -94,7 +94,7 @@ Gør brug af automatiserede testværktøjer (PyTest) så man opnår:
 - høj test dækning
 
 i henhold til dette projekt.
-- Mange unit-test lavet i samme test-miljø Pytest.
+- mange unit-test lavet i samme test-miljø Pytest.
 - færre, men mere mplrettede tests.
 - test køres automatisk via terminal og CI-pipelines.
 
@@ -103,15 +103,15 @@ I Dette projekt benyttes Decision Table test, til at validere brugeroprettelse o
 
 krav:
 - er brugernavnet unikt ?
-- Overholder Password længdekravet (8-20 tegn) ?
+- overholder Password længdekravet (8-20 tegn) ?
 - indeholder password mindst ét tal ?
 - indeholder password mindst ét specialtegn ?
 
 Resultater:
-- Bruger oprettes
-- Adgang gives
-- Adgang nægtes
-- Fejl besked (weakpassword / already exists)
+- bruger oprettes
+- adgang gives
+- adgang nægtes
+- fejl besked (weakpassword / already exists)
 
 |   | unikt brugernavn | 8-20 tegn | Tal i password | Specialtegn i password | Resultat              |
 |---|------------------|-----------|----------------|------------------------|-----------------------|
