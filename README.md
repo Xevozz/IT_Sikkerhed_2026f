@@ -150,32 +150,32 @@ Dette sikrer at forskellige kombinationer af input, ikke fører til uforudset el
 ## Code / Dev Security gate (lokal / test miljø) ##
 Følgende teknikker er placeret her, grundet:
 
-Ækvivalensklasser
+###Ækvivalensklasser###
 - Input validering af Password og Brugernavn
 - Sikrer gyldig og ugyldig inout behandles korrekt
 
-Grænseværditest
+###Grænseværditest###
 - Tester Password længden (8-20ntegn)
 - Forebygger svage eller ugyldige passwords
 
-CRUD (L)
+###CRUD (L)###
 - Tester: Create, Read, Update, Delete og List
 - Sikrer korrekt brug af brugerdata
 
-Decision Table test (Password & bruger)
+###Decision Table test (Password & bruger)###
 - tester kombinationer af password krav og brugeroprettelsen
 
 
 ## Integration Security Gate (Integrations miljøet) ##
 Følgende teknikker er placeret her, grundet:
 
-Cycle Process Test
+###Cycle Process Test###
 - tester brugerflows gentagne gange (create, update, authentication & delete)
 - sikrer systemets stabilitet over flere cyklusser
 
 ## System / End-to-End Security Gate (staging miljøet)
 
-Test-pyramiden
+###Test-pyramiden###
 - validerer vitale brugerrejser
 - sikrer at sikkerhedsmæssige funktiuoner, fungere korrekt i systemet.
 
