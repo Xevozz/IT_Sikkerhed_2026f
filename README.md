@@ -123,7 +123,17 @@ Resultater:
 | 6 | Nej              | Ja        | Ja             | Ja                     | Afvist (AlreadyExists |
 | 7 | Nej              | -         | -              | -                      | Afvist (AlreadyExists |
 
+Anvendelse i koden.
+Decision Table-reglerne er direkte implementeret og testet i følgende funktioner:
+- Create_user()
+- _validate_password()
+- authenticate_user()
 
+Decision table test hjælper IT-sikekrheden ved at:
+- sikre at password reglerne overholdes
+- reducere risici for svage passwords
+- forhindre un-authorized brugeroprettelse
+Dette sikrer at forskellige kombinationer af input, ikke fører til uforudset eller atypisk systemadfærd.
 
 
 
