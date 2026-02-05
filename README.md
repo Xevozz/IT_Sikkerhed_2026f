@@ -136,6 +136,54 @@ Decision table test hjælper IT-sikekrheden ved at:
 Dette sikrer at forskellige kombinationer af input, ikke fører til uforudset eller atypisk systemadfærd.
 
 
+# -- Security Gates --#
+
+| TestTeknik          | Security Gates           |
+|---------------------|--------------------------|
+| Ækvivalensklasser   | Code / Dev gate          |
+| Grænseværditest     | Code / Dev gate          |
+| CRUD (L)            | Code / Dev gate          |
+| Decision Table Test | Code / Dev gate          |
+| Cycle Process Test  | Integration Gate         |
+| Test-Pyramiden      | System / End-to-End Gate |
+
+## Code / Dev Security gate (lokal / test miljø) ##
+Følgende teknikker er placeret her, grundet:
+
+Ækvivalensklasser
+- Input validering af Password og Brugernavn
+- Sikrer gyldig og ugyldig inout behandles korrekt
+
+Grænseværditest
+- Tester Password længden (8-20ntegn)
+- Forebygger svage eller ugyldige passwords
+
+CRUD (L)
+- Tester: Create, Read, Update, Delete og List
+- Sikrer korrekt brug af brugerdata
+
+Decision Table test (Password & bruger)
+- tester kombinationer af password krav og brugeroprettelsen
+
+
+## Integration Security Gate (Integrations miljøet) ##
+Følgende teknikker er placeret her, grundet:
+
+Cycle Process Test
+- tester brugerflows gentagne gange (create, update, authentication & delete)
+- sikrer systemets stabilitet over flere cyklusser
+
+## System / End-to-End Security Gate (staging miljøet)
+
+Test-pyramiden
+- validerer vitale brugerrejser
+- sikrer at sikkerhedsmæssige funktiuoner, fungere korrekt i systemet.
+
+Ved at inddele disse forskellige test-teknikker i relevante security gates, opnår:
+- Tidlig identificering af sikkerhedsproblemer
+- Giver en lavere risici for fejl ved release
+- Giver en struktureret og sikker udviklingsprocess.
+
 
 
 
