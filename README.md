@@ -246,6 +246,12 @@ Hver test indeholder en kort kommentar om risikoen, hvis testen fejler, fx:
 - Hvis disabled brugere kan logge ind → Resultat = adgangskontrol virker ikke.
 - Hvis data ikke kontinuerligt er korrekt → Resultat = systemet opfører sig ustabilt.
 
+--------------------------------------------------------------------------------
+
+
+# Kryptering + Hashing – IT-Sikkerhed (Opgave 2: SVÆR)
+
+# -----  -----
 
 
 
