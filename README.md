@@ -184,7 +184,73 @@ Ved at inddele disse forskellige test-teknikker i relevante security gates, opn�
 - Giver en lavere risici for fejl ved release
 - Giver en struktureret og sikker udviklingsprocess.
 
+----------------------------------------------------------------------------
 
+
+# Flat File Database – IT-Sikkerhed (Opgave 1: SVÆR)
+
+##Formålet med denne opgave er at implementere en **flat file database**
+baseret på JSON-fil, designe og implementere unit tests ved brug af testdesign-teknikker samt dokumentere løsningen.
+
+# ----- Hvorfor er det smart at bruge en flat file DB? -----
+En flat file database er fornuftigt brugt i mindre systemer fordi:
+
+- implementationen er simpel og kræver ingen database-server connection
+- Data lagres i JSON, let at debugge.
+- Den nemt/simpelt sat op, hvilket gør den ideel til prototyper.
+- Den kan testes nemt, da JSON-filer kan oprettes og slettes.
+- Den passer godt til opgaver, hvor datamængden er begrænset.
+
+I større systemer vil man typisk anvende en rigtig database, men til denne opgave giver en flat file DB rigtig god mening.
+
+---
+
+# ----- Database-design -----
+Flat file databasen er implementeret i:
+Databasen gemmer brugerdata i en JSON-fil med følgende felter:
+
+- `person_id`
+- `first_name`
+- `last_name`
+- `adress`
+- `street_number`
+- `password`
+- `enabled`
+
+JSON-filen oprettes automatisk, hvis den ikke findes i forvejen. I unit tests anvendes `pytest` &`tmp_path`, så hver test får sin egen isolerede JSON-fil.
+
+# ----- Testdesign og funktionalitet -----
+Test cases er designet med fokus på:
+
+- CRUD-funktionalitet (Create, Read, Update, Delete)
+- Auth-logik (password og enabled-status)
+- Persistence (data bliver korrekt skrevet og læst fra JSON)
+
+Der er anvendt testdesign-principper som:
+- Equivalence Partitioning
+- Boundary Value Analysis
+- Decision tables (fx login: korrekt password / forkert password / disabled user)
+
+---
+
+# ----- Unit tests Screenshot -----
+
+
+# ----- Given / When / Then -----
+Alle test cases er med tydelige kommentarer:
+
+- Given – forudsætning for testdata
+- When – handlingen der udføres
+- Then – forventet resultat (assert)
+
+
+# ----- Risici hvis tests ikke består -----
+Hver test indeholder en kort kommentar om risikoen, hvis testen fejler, fx:
+
+- Hvis oprettelse af bruger fejler → Resultat = data kan gå tabt.
+- Hvis login accepterer forkert password → Resultat = kritisk sikkerhedsfejl.
+- Hvis disabled brugere kan logge ind → Resultat = adgangskontrol virker ikke.
+- Hvis data ikke kontinuerligt er korrekt → Resultat = systemet opfører sig ustabilt.
 
 
 
