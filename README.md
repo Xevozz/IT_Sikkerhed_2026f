@@ -228,6 +228,7 @@ Test cases er designet med fokus på:
 
 
 # ----- Unit tests Screenshot -----
+<img width="375" height="615" alt="Screenshot 2026-02-10 at 11 29 21" src="https://github.com/user-attachments/assets/c292d109-63cb-4ffc-9976-4f8848e93c7b" />
 
 
 # ----- Given / When / Then -----
