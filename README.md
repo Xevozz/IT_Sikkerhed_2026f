@@ -226,12 +226,6 @@ Test cases er designet med fokus på:
 - Auth-logik (password og enabled-status)
 - Persistence (data bliver korrekt skrevet og læst fra JSON)
 
-Der er anvendt testdesign-principper som:
-- Equivalence Partitioning
-- Boundary Value Analysis
-- Decision tables (fx login: korrekt password / forkert password / disabled user)
-
----
 
 # ----- Unit tests Screenshot -----
 
