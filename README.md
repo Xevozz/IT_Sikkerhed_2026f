@@ -283,7 +283,12 @@ Dekrypterede værdier bruges kun lokalt i metoden og forsvinder, når det afslut
 - Kryptering & hashing: `src/flat_file/flat_file_cryptography.py`
 
 # ----- Unit-Tests Screenshot -----
+# JSON hashed Fil, Screenshot
+<img width="515" height="465" alt="Json fil hashed" src="https://github.com/user-attachments/assets/621ff497-23de-4adf-8861-0fb78c623cb7" />
 
+
+# Hashed & Decrypt unit-tests, Screenshot
+<img width="516" height="442" alt="Hashed Decrypt unit-test screenshot" src="https://github.com/user-attachments/assets/dffca107-0473-4662-9ce7-3d43bdc2f7e2" />
 
 
 
