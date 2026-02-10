@@ -217,7 +217,7 @@ Databasen gemmer brugerdata i en JSON-fil med følgende felter:
 - `password`
 - `enabled`
 
-JSON-filen oprettes automatisk, hvis den ikke findes i forvejen. I unit tests anvendes `pytest` &`tmp_path`, så hver test får sin egen isolerede JSON-fil.
+JSON-filen oprettes automatisk, hvis den ikke findes i forvejen. I unit tests anvendes `pytest` &`tmp_path`, så hver test får sin egen JSON-fil.
 
 # ----- Testdesign og funktionalitet -----
 Test cases er designet med fokus på:
