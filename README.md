@@ -189,7 +189,7 @@ Ved at inddele disse forskellige test-teknikker i relevante security gates, opn�
 
 # Flat File Database – IT-Sikkerhed (Opgave 1: SVÆR)
 
-##Formålet med denne opgave er at implementere en **flat file database**
+# ----- Formålet med denne opgave er at implementere en **flat file database** -----
 baseret på JSON-fil, designe og implementere unit tests ved brug af testdesign-teknikker samt dokumentere løsningen.
 
 # ----- Hvorfor er det smart at bruge en flat file DB? -----
@@ -251,7 +251,37 @@ Hver test indeholder en kort kommentar om risikoen, hvis testen fejler, fx:
 
 # Kryptering + Hashing – IT-Sikkerhed (Opgave 2: SVÆR)
 
-# -----  -----
+# ----- Hvilke algoritmer er valgt – og hvorfor? -----
+- **Kryptering:** `Fernet` (fra `cryptography`)  
+  Fernet er en symmetrisk krypteringsløsning, der er nem at bruge korrekt og inkluderer både kryptering og integritetsbeskyttelse (så data ikke kan ændres uden at det opdages).
+- **Password hashing:** `PBKDF2-HMAC-SHA256` (Python stdlib `hashlib.pbkdf2_hmac`)  
+  Passwords hashes one-way med salt og mange iterationer (key stretching), så brute force bliver markant dyrere.
+
+# ----- Hvad krypteres, og hvad hashes? -----
+# Krypteres (persondata / GDPR):**
+- `first_name`, `last_name`, `adress`, `street_number`, `email`, `telefon`, `by`
+
+# Hashes (kun password):**
+- `password`
+
+Passwords krypteres ikke, fordi de aldrig skal kunne gendannes. De hashes og verificeres ved sammenligning.
+
+# ----- Hvornår krypteres data? -----
+Data krypteres før den bliver gemt i JSON-filen.
+Det betyder at JSON-filen ikke indeholder klartekst for persondata.
+
+# ----- Hvornår dekrypteres data? -----
+Data dekrypteres når det er nødvendigt, fx når en bruger hentes via `get_user_by_id(...)`.
+Password dekrypteres aldrig, da det er hashed.
+
+# ----- Hvornår fjernes dekrypteret data fra hukommelsen? -----
+Dekrypterede værdier bruges kun lokalt i metoden og forsvinder, når det afsluttes (når funktionen returnerer). Det minimerer eksponering i RAM.
+
+# ----- Hvor ligger implementeringen? -----
+- Database: `src/flat_file/flat_file_db.py`
+- Kryptering & hashing: `src/flat_file/flat_file_cryptography.py`
+
+# ----- Unit-Tests Screenshot -----
 
 
 

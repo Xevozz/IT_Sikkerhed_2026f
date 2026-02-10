@@ -1,0 +1,33 @@
+def test_user_is_encrypted_and_password_is_hashed(tmp_path, monkeypatch):
+    from src.flat_file.flat_file_cryptography import Encryptor, PasswordHasher
+    from cryptography.fernet import Fernet
+    from src.flat_file.flat_file_db import FlatFileUserDB
+
+    # Given
+    key = Fernet.generate_key().decode()
+    monkeypatch.setenv("FLATFILE_DB_KEY", key)
+
+    enc = Encryptor.from_env()
+    hasher = PasswordHasher()
+    db = FlatFileUserDB(tmp_path / "users.json", enc, hasher)
+
+    user = {
+        "person_id": 1,
+        "first_name": "Niklas",
+        "last_name": "Pedersen",
+        "adress": "Testvej",
+        "street_number": "1",
+        "email": "n@test.dk",
+        "telefon": "12345678",
+        "password": "Secret123",
+        "enabled": True,
+    }
+
+    # When
+    db.create_user(user)
+
+    # Then (raw file must not contain plaintext)
+    raw = (tmp_path / "users.json").read_text(encoding="utf-8")
+    assert "Niklas" not in raw
+    assert "n@test.dk" not in raw
+    assert "Secret123" not in raw
