@@ -19,7 +19,7 @@ class Data_Handler:
     def __init__(self, file_path: str):
         self.loader = FlatFileLoader(file_path)
 
-    # ---------- Helping Methods ----------
+    # ---------- hjælpe metoder ----------
     def _read_users(self) -> List[Dict[str, Any]]:
         data = self.loader.load()
         return data["users"]
@@ -99,7 +99,7 @@ class Data_Handler:
         return u["password"] == self._hash_password(password)
 
 
-# ----- Alias så tests kan import Data_handler -----
+# ----- Alias til import Data_handler -----
 
 Data_handler = Data_Handler
 
