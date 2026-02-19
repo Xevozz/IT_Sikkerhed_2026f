@@ -253,18 +253,17 @@ Hver test indeholder en kort kommentar om risikoen, hvis testen fejler, fx:
 # Kryptering + Hashing – IT-Sikkerhed (Opgave 2: SVÆR)
 
 # ----- Hvilke algoritmer er valgt – og hvorfor? -----
-- **Kryptering:** `Fernet` (fra `cryptography`)  
-  Fernet er en symmetrisk krypteringsløsning, der er nem at bruge korrekt og inkluderer både kryptering og integritetsbeskyttelse (så data ikke kan ændres uden at det opdages).
-- **Password hashing:** `PBKDF2-HMAC-SHA256` (Python stdlib `hashlib.pbkdf2_hmac`)  
-  Passwords hashes one-way med salt og mange iterationer (key stretching), så brute force bliver markant dyrere.
+- Kryptering: `Fernet` (fra `cryptography`)  
+  Fernet er en symmetrisk krypteringsløsning, der er nem at bruge og inkluderer både kryptering og integritetsbeskyttelse (så data ikke kan ændres, uden at det opdages).
+- Password hashing: `PBKDF2-HMAC-SHA256` (Python stdlib `hashlib.pbkdf2_hmac`)  
+  Passwords hashes one-way med salt og mange iterationer (key stretching), så brute force bliver markant sværere
 
 # ----- Hvad krypteres, og hvad hashes? -----
-# Krypteres (persondata / GDPR):**
+# Krypteres (persondata / GDPR):
 - `first_name`, `last_name`, `adress`, `street_number`, `email`, `telefon`, `by`
 
-# Hashes (kun password):**
+# Hashes (kun password):
 - `password`
-
 Passwords krypteres ikke, fordi de aldrig skal kunne gendannes. De hashes og verificeres ved sammenligning.
 
 # ----- Hvornår krypteres data? -----
@@ -283,7 +282,12 @@ Dekrypterede værdier bruges kun lokalt i metoden og forsvinder, når det afslut
 - Kryptering & hashing: `src/flat_file/flat_file_cryptography.py`
 
 # ----- Unit-Tests Screenshot -----
+# JSON hashed Fil, Screenshot
+<img width="515" height="465" alt="Json fil hashed" src="https://github.com/user-attachments/assets/621ff497-23de-4adf-8861-0fb78c623cb7" />
 
+
+# Hashed & Decrypt unit-tests, Screenshot
+<img width="516" height="442" alt="Hashed Decrypt unit-test screenshot" src="https://github.com/user-attachments/assets/dffca107-0473-4662-9ce7-3d43bdc2f7e2" />
 
 
 
